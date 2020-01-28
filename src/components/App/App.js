@@ -9,6 +9,8 @@ import SignIn from '../SignIn/SignIn'
 import SignOut from '../SignOut/SignOut'
 import ChangePassword from '../ChangePassword/ChangePassword'
 
+import Prompts from '../Prompt/Prompts'
+
 class App extends Component {
   constructor () {
     super()
@@ -42,6 +44,9 @@ class App extends Component {
           />
         ))}
         <main className="container">
+          <Route path='/prompts' render={({ match }) => (
+            <Prompts alert={this.alert} user={user} match={match} />
+          )} />
           <Route path='/sign-up' render={() => (
             <SignUp alert={this.alert} setUser={this.setUser} />
           )} />
