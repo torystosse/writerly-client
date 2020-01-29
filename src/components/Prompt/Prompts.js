@@ -34,6 +34,8 @@ const Prompts = props => {
   //   </li>
   // ))
 
+  // const newPrompts = currentPrompt.text
+
   const getPrompt = () => {
     axios(`${apiUrl}/prompts`)
       .then(res => setPrompts(res.data.prompts))
@@ -53,6 +55,7 @@ const Prompts = props => {
       })
 
     let newPromptIndex = prompts.findIndex(prompt => (currentPrompt._id === prompts._id))
+    console.log('newPromptIndex is ' + newPromptIndex)
     const currentPromptIndex = newPromptIndex
     while (currentPromptIndex === newPromptIndex) {
       newPromptIndex = Math.floor(Math.random() * prompts.length)
@@ -61,14 +64,17 @@ const Prompts = props => {
     console.log(newPromptIndex)
   }
 
-  if (!prompts) {
-    return <p>Loading...</p>
+  let promptsJsx = ''
+  if (!currentPrompt) {
+    promptsJsx = 'Loading...'
+  } else {
+    promptsJsx = currentPrompt.text
   }
 
   return (
     <div>
       <button className='btn btn-primary' onClick={getPrompt}>Get A Prompt!</button>
-      <p>{currentPrompt.text}</p>
+      <p>{promptsJsx}</p>
     </div>
   )
 
