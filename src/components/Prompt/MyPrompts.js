@@ -33,12 +33,16 @@ const MyPrompts = props => {
   }, [])
 
   const filteredPrompts = prompts.filter(prompt => prompt.owner === props.user._id)
-
-  const newPrompts = filteredPrompts.map(prompt => (
-    <li key={prompt._id}>
-      <Link to={`/prompts/${prompt._id}`}>{prompt.text}</Link>
-    </li>
-  ))
+  let newPrompts = ''
+  if (filteredPrompts.length === 0) {
+    newPrompts = 'Looks like you don\'t have any prompts yet, why not create one?'
+  } else {
+    newPrompts = filteredPrompts.map(prompt => (
+      <li key={prompt._id}>
+        <Link to={`/prompts/${prompt._id}`}>{prompt.text}</Link>
+      </li>
+    ))
+  }
 
   return (
     <Layout>

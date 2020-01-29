@@ -48,13 +48,11 @@ const Prompts = props => {
       })
 
     let newPromptIndex = prompts.findIndex(prompt => (currentPrompt._id === prompts._id))
-    console.log('newPromptIndex is ' + newPromptIndex)
     const currentPromptIndex = newPromptIndex
     while (currentPromptIndex === newPromptIndex) {
       newPromptIndex = Math.floor(Math.random() * prompts.length)
     }
     setCurrentPrompt(prompts[newPromptIndex])
-    console.log(newPromptIndex)
   }
 
   let promptsJsx = ''
