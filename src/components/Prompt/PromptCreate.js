@@ -34,7 +34,20 @@ const PromptCreate = props => {
       data: { prompt }
     })
       .then(res => setCreatedPromptId(res.data.prompt._id))
-      .catch(console.error)
+      .then(() => {
+        props.alert({
+          heading: 'Woohoo!',
+          message: 'You\'ve created a prompt!',
+          variant: 'success'
+        })
+      })
+      .catch(() => {
+        props.alert({
+          heading: 'Aw man!',
+          message: 'Something went wrong',
+          variant: 'danger'
+        })
+      })
   }
 
   if (createdPromptId) {

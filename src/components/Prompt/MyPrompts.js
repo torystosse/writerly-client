@@ -17,7 +17,19 @@ const MyPrompts = props => {
       }
     })
       .then(res => setPrompts(res.data.prompts))
-      .catch(console.error)
+      .then(() => {
+        props.alert({
+          message: 'You\'ve got some great prompts there!',
+          variant: 'success'
+        })
+      })
+      .catch(() => {
+        props.alert({
+          heading: 'Aw man!',
+          message: 'Something went wrong',
+          variant: 'danger'
+        })
+      })
   }, [])
 
   const filteredPrompts = prompts.filter(prompt => prompt.owner === props.user._id)

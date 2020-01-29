@@ -13,7 +13,13 @@ const PromptEdit = props => {
   useEffect(() => {
     axios(`${apiUrl}/prompts/${props.match.params.id}`)
       .then(res => setPrompt(res.data.prompt))
-      .catch(console.error)
+      .catch(() => {
+        props.alert({
+          heading: 'Aw man!',
+          message: 'Something went wrong',
+          variant: 'danger'
+        })
+      })
   }, [])
 
   const handleChange = event => {
@@ -35,7 +41,19 @@ const PromptEdit = props => {
       data: { prompt }
     })
       .then(() => setUpdated(true))
-      .catch(console.error)
+      .then(() => {
+        props.alert({
+          message: 'Prompt successfully updated',
+          variant: 'success'
+        })
+      })
+      .catch(() => {
+        props.alert({
+          heading: 'Aw man!',
+          message: 'Something went wrong',
+          variant: 'danger'
+        })
+      })
   }
 
   if (updated) {

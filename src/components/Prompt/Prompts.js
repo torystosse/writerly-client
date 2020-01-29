@@ -16,7 +16,7 @@ const Prompts = props => {
         props.alert({
           heading: 'Aw man!',
           message: 'Something went wrong',
-          variant: 'failure'
+          variant: 'danger'
         })
       })
   }, [])
@@ -35,7 +35,7 @@ const Prompts = props => {
       .then(() => {
         props.alert({
           heading: 'Woohoo!',
-          message: 'You\'ve selected a prompt',
+          message: 'You\'ve received a prompt',
           variant: 'success'
         })
       })
@@ -43,7 +43,7 @@ const Prompts = props => {
         props.alert({
           heading: 'Aw man!',
           message: 'Something went wrong',
-          variant: 'failure'
+          variant: 'danger'
         })
       })
 
