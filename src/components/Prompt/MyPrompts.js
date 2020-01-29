@@ -10,7 +10,7 @@ const MyPrompts = props => {
 
   useEffect(() => {
     axios({
-      url: `${apiUrl}/my-prompts`,
+      url: `${apiUrl}/prompts`,
       method: 'GET',
       headers: {
         'Authorization': `Token token=${props.user.token}`
@@ -20,7 +20,9 @@ const MyPrompts = props => {
       .catch(console.error)
   }, [])
 
-  const newPrompts = prompts.map(prompt => (
+  const filteredPrompts = prompts.filter(prompt => prompt.owner === props.user._id)
+
+  const newPrompts = filteredPrompts.map(prompt => (
     <li key={prompt._id}>
       <Link to={`/prompts/${prompt._id}`}>{prompt.text}</Link>
     </li>
