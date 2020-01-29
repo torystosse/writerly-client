@@ -8,8 +8,13 @@ import SignUp from '../SignUp/SignUp'
 import SignIn from '../SignIn/SignIn'
 import SignOut from '../SignOut/SignOut'
 import ChangePassword from '../ChangePassword/ChangePassword'
+// import Home from '../Home/Home'
 
 import Prompts from '../Prompt/Prompts'
+import MyPrompts from '../Prompt/MyPrompts'
+import PromptCreate from '../Prompt/PromptCreate'
+import Prompt from '../Prompt/Prompt'
+import PromptEdit from '../Prompt/PromptEdit'
 
 class App extends Component {
   constructor () {
@@ -46,6 +51,21 @@ class App extends Component {
         <main className="container">
           <Route exact path='/' render={({ match }) => (
             <Prompts alert={this.alert} user={user} match={match} />
+          )} />
+          {/* // <Route exact path='/' user={user} render={({ match }) => (
+          //   <Home user={user} match={match}/>
+          // )} /> */}
+          <Route exact path="/prompts/:id" render={({ match, history }) => (
+            <Prompt alert={this.alert} user={user} match={match} history={history}/>
+          )}/>
+          <AuthenticatedRoute user={user} path='/create-prompt' render={() => (
+            <PromptCreate alert={this.alert} user={user} />
+          )} />
+          <AuthenticatedRoute user={user} exact path='/prompts/:id/edit' render={({ match }) => (
+            <PromptEdit alert={this.alert} user={user} match={match} />
+          )} />
+          <AuthenticatedRoute user={user} exact path='/my-prompts' render={() => (
+            <MyPrompts alert={this.alert} user={user} />
           )} />
           <Route path='/sign-up' render={() => (
             <SignUp alert={this.alert} setUser={this.setUser} />
