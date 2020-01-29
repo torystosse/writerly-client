@@ -20,7 +20,7 @@ const unauthenticatedOptions = (
 
 const alwaysOptions = (
   <Fragment>
-    <Nav.Link href="#">Home</Nav.Link>
+    <Nav.Link href="https://torystosse.github.io/writerly-client/#/">Home</Nav.Link>
   </Fragment>
 )
 
