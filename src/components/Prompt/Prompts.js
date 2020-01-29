@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 // import { Link } from 'react-router-dom'
 import axios from 'axios'
 
@@ -9,18 +9,24 @@ const Prompts = props => {
   const [prompts, setPrompts] = useState([])
   const [currentPrompt, setCurrentPrompt] = useState({})
 
-  useEffect(() => {
-    axios(`${apiUrl}/prompts`)
-      .then(res => setPrompts(res.data.prompts))
-      .then(() => {
-        this.props.alert({
-          heading: 'Woohoo!',
-          message: 'You\'ve selected a prompt',
-          variant: 'success'
-        })
-      })
-      .catch(console.error)
-  }, [])
+  // useEffect(() => {
+  //   axios(`${apiUrl}/prompts`)
+  //     .then(res => setPrompts(res.data.prompts))
+  //     .then(() => {
+  //       props.alert({
+  //         heading: 'Woohoo!',
+  //         message: 'You\'ve selected a prompt',
+  //         variant: 'success'
+  //       })
+  //     })
+  //     .catch(() => {
+  //       props.alert({
+  //         heading: 'Aw man!',
+  //         message: 'Something went wrong',
+  //         variant: 'failure'
+  //       })
+  //     })
+  // }, [])
 
   // const newPrompts = prompts.map(prompt => (
   //   <li key={prompt.id}>
@@ -29,12 +35,30 @@ const Prompts = props => {
   // ))
 
   const getPrompt = () => {
-    let newPromptIndex = prompts.findIndex(prompt => (currentPrompt._id === prompt._id))
+    axios(`${apiUrl}/prompts`)
+      .then(res => setPrompts(res.data.prompts))
+      .then(() => {
+        props.alert({
+          heading: 'Woohoo!',
+          message: 'You\'ve selected a prompt',
+          variant: 'success'
+        })
+      })
+      .catch(() => {
+        props.alert({
+          heading: 'Aw man!',
+          message: 'Something went wrong',
+          variant: 'failure'
+        })
+      })
+
+    let newPromptIndex = prompts.findIndex(prompt => (currentPrompt._id === prompts._id))
     const currentPromptIndex = newPromptIndex
     while (currentPromptIndex === newPromptIndex) {
       newPromptIndex = Math.floor(Math.random() * prompts.length)
     }
     setCurrentPrompt(prompts[newPromptIndex])
+    console.log(newPromptIndex)
   }
 
   if (!prompts) {
@@ -44,6 +68,7 @@ const Prompts = props => {
   return (
     <div>
       <button className='btn btn-primary' onClick={getPrompt}>Get A Prompt!</button>
+      <p>{currentPrompt.text}</p>
     </div>
   )
 

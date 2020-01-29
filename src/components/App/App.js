@@ -44,7 +44,7 @@ class App extends Component {
           />
         ))}
         <main className="container">
-          <Route path='/prompts' render={({ match }) => (
+          <Route exact path='/' render={({ match }) => (
             <Prompts alert={this.alert} user={user} match={match} />
           )} />
           <Route path='/sign-up' render={() => (
