@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 // import { Link } from 'react-router-dom'
 import axios from 'axios'
 
@@ -9,24 +9,17 @@ const Prompts = props => {
   const [prompts, setPrompts] = useState([])
   const [currentPrompt, setCurrentPrompt] = useState({})
 
-  // useEffect(() => {
-  //   axios(`${apiUrl}/prompts`)
-  //     .then(res => setPrompts(res.data.prompts))
-  //     .then(() => {
-  //       props.alert({
-  //         heading: 'Woohoo!',
-  //         message: 'You\'ve selected a prompt',
-  //         variant: 'success'
-  //       })
-  //     })
-  //     .catch(() => {
-  //       props.alert({
-  //         heading: 'Aw man!',
-  //         message: 'Something went wrong',
-  //         variant: 'failure'
-  //       })
-  //     })
-  // }, [])
+  useEffect(() => {
+    axios(`${apiUrl}/prompts`)
+      .then(res => setPrompts(res.data.prompts))
+      .catch(() => {
+        props.alert({
+          heading: 'Aw man!',
+          message: 'Something went wrong',
+          variant: 'failure'
+        })
+      })
+  }, [])
 
   // const newPrompts = prompts.map(prompt => (
   //   <li key={prompt.id}>
