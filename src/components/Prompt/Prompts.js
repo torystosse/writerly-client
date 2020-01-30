@@ -46,12 +46,12 @@ const Prompts = props => {
           variant: 'danger'
         })
       })
-
-    let newPromptIndex = prompts.findIndex(prompt => (currentPrompt._id === prompts._id))
-    const currentPromptIndex = newPromptIndex
-    while (currentPromptIndex === newPromptIndex) {
-      newPromptIndex = Math.floor(Math.random() * prompts.length)
-    }
+    const newPromptIndex = Math.floor(Math.random() * prompts.length)
+    // let newPromptIndex = prompts.findIndex(prompt => (currentPrompt._id === prompts._id))
+    // const currentPromptIndex = newPromptIndex
+    // while (currentPromptIndex === newPromptIndex) {
+    //   newPromptIndex = Math.floor(Math.random() * prompts.length)
+    // }
     setCurrentPrompt(prompts[newPromptIndex])
   }
 
