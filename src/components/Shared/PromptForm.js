@@ -12,7 +12,7 @@ const PromptForm = ({ prompt, handleSubmit, handleChange }) => (
       onChange={handleChange}
     />
 
-    <button type="submit">Submit</button>
+    <button type="submit" className='btn btn-primary'>Submit</button>
   </form>
 )
 

@@ -1,1 +1,53 @@
 @import '~bootstrap/scss/bootstrap';
+
+body {
+  font-family: 'Titillium Web', sans-serif;
+  text-align: center;
+}
+
+img {
+  height: 50px;
+  width: 50px;
+}
+
+input {
+  width: 400px;
+}
+
+.btn-danger {
+  background-color: white;
+  border: 2px solid #ff1a1a;
+  color: #ff1a1a;
+}
+
+.btn-danger:hover {
+  background-color: #ff1a1a;
+  border: 2px solid white;
+  color: white;
+}
+
+.btn-primary {
+  background-color: white;
+  border: 2px solid #8c8c8c;
+  color: #8c8c8c;
+}
+
+.btn-primary:active {
+  background-color: #8c8c8c;
+  border: 2px solid white;
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: #8c8c8c;
+  border: 2px solid white;
+  color: white;
+}
+
+.nav {
+  background-color: #c68c53;
+}
+
+.heading {
+  font-family: 'Exo', sans-serif;
+}

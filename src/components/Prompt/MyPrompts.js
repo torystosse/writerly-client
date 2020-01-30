@@ -38,7 +38,7 @@ const MyPrompts = props => {
     newPrompts = 'Looks like you don\'t have any prompts yet, why not create one?'
   } else {
     newPrompts = filteredPrompts.map(prompt => (
-      <li key={prompt._id}>
+      <li className='list-group-item' key={prompt._id}>
         <Link to={`/prompts/${prompt._id}`}>{prompt.text}</Link>
       </li>
     ))
@@ -47,7 +47,7 @@ const MyPrompts = props => {
   return (
     <Layout>
       <h4>My Prompts</h4>
-      <ul>
+      <ul className='list-group'>
         {newPrompts}
       </ul>
     </Layout>
