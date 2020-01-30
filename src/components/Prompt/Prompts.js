@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 
 import apiUrl from '../../apiConfig'
-// import Layout from '../shared/Layout'
+import Layout from '../Shared/Layout'
 
 const Prompts = props => {
   const [prompts, setPrompts] = useState([])
@@ -63,10 +63,10 @@ const Prompts = props => {
   }
 
   return (
-    <div>
-      <button className='btn btn-primary' onClick={getPrompt}>Get A Prompt!</button>
+    <Layout>
+      <button className='btn btn-primary prompt-button' onClick={getPrompt}>Get A Prompt!</button>
       <p>{promptsJsx}</p>
-    </div>
+    </Layout>
   )
 
   // <h4>Prompts</h4>

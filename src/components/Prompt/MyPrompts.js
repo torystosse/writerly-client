@@ -39,7 +39,7 @@ const MyPrompts = props => {
   } else {
     newPrompts = filteredPrompts.map(prompt => (
       <li className='list-group-item' key={prompt._id}>
-        <Link to={`/prompts/${prompt._id}`}>{prompt.text}</Link>
+        <Link to={`/prompts/${prompt._id}`} className='my-prompts'>{prompt.text}</Link>
       </li>
     ))
   }

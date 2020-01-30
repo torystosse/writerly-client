@@ -3,7 +3,8 @@ import React from 'react'
 
 const PromptForm = ({ prompt, handleSubmit, handleChange }) => (
   <form onSubmit={handleSubmit}>
-    <label>Prompt Text</label>
+    <label className='form-label'>Your Prompt</label>
+    <br />
     <input
       placeholder="Your writing prompt goes here!"
       value={prompt.text}
@@ -11,8 +12,8 @@ const PromptForm = ({ prompt, handleSubmit, handleChange }) => (
       type="text"
       onChange={handleChange}
     />
-
-    <button type="submit" className='btn btn-primary'>Submit</button>
+    <br />
+    <button type="submit" className='btn btn-primary submit-button'>Submit</button>
   </form>
 )
 

@@ -68,9 +68,9 @@ const Prompt = props => {
       <p>{prompt.text}</p>
       <button onClick={destroy} className='btn btn-danger'>Delete</button>
       <Link to={`/prompts/${props.match.params.id}/edit`}>
-        <button className='btn btn-primary'>Edit</button>
+        <button className='btn btn-primary edit-button'>Edit</button>
       </Link>
-      <Link to="/my-prompts">Back</Link>
+      <Link to="/my-prompts" className='back-link'>Back</Link>
     </Layout>
   )
 }

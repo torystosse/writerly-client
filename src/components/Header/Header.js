@@ -25,7 +25,7 @@ const alwaysOptions = (
 )
 
 const Header = ({ user }) => (
-  <Navbar variant="dark" expand="md" className='nav'>
+  <Navbar variant="dark" expand="xl" className='nav'>
     <img src={'https://i.ya-webdesign.com/images/writing-png-icon-4.png'} />
     <Navbar.Brand href="#" className='heading'>
       writer.ly

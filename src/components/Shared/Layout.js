@@ -5,6 +5,7 @@ import React from 'react'
 
 const Layout = props => (
   <div>
+    <h6>Writerly - the application designed to keep you writing!</h6>
     {props.children}
   </div>
 )
