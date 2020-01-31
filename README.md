@@ -74,8 +74,9 @@ In future iterations, I would...
 
 #### App Screenshot:
 
-![writer.ly](https://imgur.com/a/tdGzYzd)
-![writer.ly](https://imgur.com/a/xypq3KB)
+![writer.ly](https://i.imgur.com/NV6oMHN.png)
+
+![writer.ly](https://i.imgur.com/Y4Wk9ze.png)
 
 #### Wireframes:
 
