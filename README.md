@@ -62,21 +62,6 @@ to function properly.
 
 
 
-#### Catalog of Routes
-| Verb   | URI Pattern  |
-|:-------|:-------------|
-| POST   | `/sign-up`        |
-| POST   | `/sign-in`        |
-| PATCH  | `/change-password`|
-| DELETE | `/sign-out`       |
-| GET    | `/prompts`        |
-| GET    | `/prompts/:id`    |
-| POST   | `/prompts`        |
-| DELETE | `/prompts/:id`    |
-| PATCH  | `/prompts/:id`    |
-
-
-
 #### Unsolved Problems
 In future iterations, I would...
 - Add an option for fiction or nonfiction for writing prompts
@@ -94,4 +79,4 @@ In future iterations, I would...
 
 #### Wireframes:
 
-#### ERD:
+![wireframes](https://i.imgur.com/HA6y0Ab.jpg?2)
