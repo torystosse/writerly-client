@@ -6,6 +6,7 @@ const PromptForm = ({ prompt, handleSubmit, handleChange }) => (
     <label className='form-label'>Your Prompt</label>
     <br />
     <input
+      required
       placeholder="Your writing prompt goes here!"
       value={prompt.text}
       name="text"
