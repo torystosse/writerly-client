@@ -30,65 +30,29 @@ const Prompts = props => {
   // const newPrompts = currentPrompt.text
 
   const getNonFictionPrompts = () => {
-    axios(`${apiUrl}/prompts`)
-      .then(res => {
-        const nonFictionPrompts = res.data.prompts.filter(prompt => (prompt.genre === 'non-fiction'))
-        setPrompts(nonFictionPrompts)
-      })
-      .then(() => {
-        props.alert({
-          heading: 'Woohoo!',
-          message: 'You\'ve received a prompt',
-          variant: 'success'
-        })
-      })
-      .catch(() => {
-        props.alert({
-          heading: 'Aw man!',
-          message: 'Something went wrong',
-          variant: 'danger'
-        })
-      })
-
-    // const nonFictionPrompts = prompts.filter(prompt => (prompt.isFiction === false))
-    const newPromptIndex = Math.floor(Math.random() * prompts.length)
-    // console.log(fictionPrompts[newPromptIndex], newPromptIndex)
-    setCurrentPrompt(prompts[newPromptIndex])
-    console.log('prompts[newPromptIndex] ', prompts[newPromptIndex])
-    console.log(newPromptIndex, ' newPromptIndex')
-    console.log(currentPrompt, ' currentPrompt')
+    const nonFictionPrompts = prompts.filter(
+      prompt => (prompt.genre === 'non-fiction')
+    )
+    props.alert({
+      heading: 'Woohoo!',
+      message: 'You\'ve received a prompt',
+      variant: 'success'
+    })
+    const newPromptIndex = Math.floor(Math.random() * nonFictionPrompts.length)
+    setCurrentPrompt(nonFictionPrompts[newPromptIndex])
   }
 
   const getFictionPrompts = () => {
-    axios(`${apiUrl}/prompts`)
-      .then(res => {
-        const fictionPrompts = res.data.prompts.filter(prompt => (prompt.genre === 'fiction'))
-        setPrompts(fictionPrompts)
-      })
-      .then(() => {
-        props.alert({
-          heading: 'Woohoo!',
-          message: 'You\'ve received a prompt',
-          variant: 'success'
-        })
-      })
-      .catch(() => {
-        props.alert({
-          heading: 'Aw man!',
-          message: 'Something went wrong',
-          variant: 'danger'
-        })
-      })
-
-    // const fictionPrompts = prompts.filter(prompt => (prompt.isFiction === true))
-    const newPromptIndex = Math.floor(Math.random() * prompts.length)
-    // console.log(fictionPrompts[newPromptIndex], newPromptIndex)
-    setCurrentPrompt(prompts[newPromptIndex])
-    // console.log('fiction prompts' + fictionPrompts)
-    // console.log('newPromptIndex ' + newPromptIndex)
-    console.log('prompts[newPromptIndex] ', prompts[newPromptIndex])
-    console.log(newPromptIndex, ' newPromptIndex')
-    console.log(currentPrompt, ' currentPrompt')
+    const fictionPrompts = prompts.filter(
+      prompt => (prompt.genre === 'fiction')
+    )
+    props.alert({
+      heading: 'Woohoo!',
+      message: 'You\'ve received a prompt',
+      variant: 'success'
+    })
+    const newPromptIndex = Math.floor(Math.random() * fictionPrompts.length)
+    setCurrentPrompt(fictionPrompts[newPromptIndex])
   }
 
   let promptsJsx = ''
