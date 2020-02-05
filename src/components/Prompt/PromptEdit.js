@@ -7,7 +7,7 @@ import PromptForm from '../Shared/PromptForm'
 import Layout from '../Shared/Layout'
 
 const PromptEdit = props => {
-  const [prompt, setPrompt] = useState({ text: '' })
+  const [prompt, setPrompt] = useState({ text: '', genre: '' })
   const [updated, setUpdated] = useState(false)
 
   useEffect(() => {

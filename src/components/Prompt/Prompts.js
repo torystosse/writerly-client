@@ -29,30 +29,30 @@ const Prompts = props => {
 
   // const newPrompts = currentPrompt.text
 
-  const getPrompt = () => {
-    axios(`${apiUrl}/prompts`)
-      .then(res => setPrompts(res.data.prompts))
-      .then(() => {
-        props.alert({
-          heading: 'Woohoo!',
-          message: 'You\'ve received a prompt',
-          variant: 'success'
-        })
-      })
-      .catch(() => {
-        props.alert({
-          heading: 'Aw man!',
-          message: 'Something went wrong',
-          variant: 'danger'
-        })
-      })
-    const newPromptIndex = Math.floor(Math.random() * prompts.length)
-    // let newPromptIndex = prompts.findIndex(prompt => (currentPrompt._id === prompts._id))
-    // const currentPromptIndex = newPromptIndex
-    // while (currentPromptIndex === newPromptIndex) {
-    //   newPromptIndex = Math.floor(Math.random() * prompts.length)
-    // }
-    setCurrentPrompt(prompts[newPromptIndex])
+  const getNonFictionPrompts = () => {
+    const nonFictionPrompts = prompts.filter(
+      prompt => (prompt.genre === 'non-fiction')
+    )
+    props.alert({
+      heading: 'Woohoo!',
+      message: 'You\'ve received a prompt',
+      variant: 'success'
+    })
+    const newPromptIndex = Math.floor(Math.random() * nonFictionPrompts.length)
+    setCurrentPrompt(nonFictionPrompts[newPromptIndex])
+  }
+
+  const getFictionPrompts = () => {
+    const fictionPrompts = prompts.filter(
+      prompt => (prompt.genre === 'fiction')
+    )
+    props.alert({
+      heading: 'Woohoo!',
+      message: 'You\'ve received a prompt',
+      variant: 'success'
+    })
+    const newPromptIndex = Math.floor(Math.random() * fictionPrompts.length)
+    setCurrentPrompt(fictionPrompts[newPromptIndex])
   }
 
   let promptsJsx = ''
@@ -64,7 +64,8 @@ const Prompts = props => {
 
   return (
     <Layout>
-      <button className='btn btn-primary prompt-button' onClick={getPrompt}>Get A Prompt!</button>
+      <button className='btn btn-primary prompt-button' onClick={getFictionPrompts}>Get A Fiction Prompt!</button>
+      <button className='btn btn-primary prompt-button' onClick={getNonFictionPrompts}>Get A Non-Fiction Prompt!</button>
       <p>{promptsJsx}</p>
     </Layout>
   )
