@@ -31,7 +31,10 @@ const Prompts = props => {
 
   const getNonFictionPrompts = () => {
     axios(`${apiUrl}/prompts`)
-      .then(res => setPrompts(res.data.prompts))
+      .then(res => {
+        const nonFictionPrompts = res.data.prompts.filter(prompt => (prompt.genre === 'non-fiction'))
+        setPrompts(nonFictionPrompts)
+      })
       .then(() => {
         props.alert({
           heading: 'Woohoo!',
@@ -47,19 +50,21 @@ const Prompts = props => {
         })
       })
 
-    const nonFictionPrompts = prompts.filter(prompt => (prompt.type === 'non-fiction'))
-    const newPromptIndex = Math.floor(Math.random() * nonFictionPrompts.length)
-    // let newPromptIndex = prompts.findIndex(prompt => (currentPrompt._id === prompts._id))
-    // const currentPromptIndex = newPromptIndex
-    // while (currentPromptIndex === newPromptIndex) {
-    //   newPromptIndex = Math.floor(Math.random() * prompts.length)
-    // }
+    // const nonFictionPrompts = prompts.filter(prompt => (prompt.isFiction === false))
+    const newPromptIndex = Math.floor(Math.random() * prompts.length)
+    // console.log(fictionPrompts[newPromptIndex], newPromptIndex)
     setCurrentPrompt(prompts[newPromptIndex])
+    console.log('prompts[newPromptIndex] ', prompts[newPromptIndex])
+    console.log(newPromptIndex, ' newPromptIndex')
+    console.log(currentPrompt, ' currentPrompt')
   }
 
   const getFictionPrompts = () => {
     axios(`${apiUrl}/prompts`)
-      .then(res => setPrompts(res.data.prompts))
+      .then(res => {
+        const fictionPrompts = res.data.prompts.filter(prompt => (prompt.genre === 'fiction'))
+        setPrompts(fictionPrompts)
+      })
       .then(() => {
         props.alert({
           heading: 'Woohoo!',
@@ -75,14 +80,15 @@ const Prompts = props => {
         })
       })
 
-    const fictionPrompts = prompts.filter(prompt => (prompt.type === 'fiction'))
-    const newPromptIndex = Math.floor(Math.random() * fictionPrompts.length)
-    // let newPromptIndex = prompts.findIndex(prompt => (currentPrompt._id === prompts._id))
-    // const currentPromptIndex = newPromptIndex
-    // while (currentPromptIndex === newPromptIndex) {
-    //   newPromptIndex = Math.floor(Math.random() * prompts.length)
-    // }
+    // const fictionPrompts = prompts.filter(prompt => (prompt.isFiction === true))
+    const newPromptIndex = Math.floor(Math.random() * prompts.length)
+    // console.log(fictionPrompts[newPromptIndex], newPromptIndex)
     setCurrentPrompt(prompts[newPromptIndex])
+    // console.log('fiction prompts' + fictionPrompts)
+    // console.log('newPromptIndex ' + newPromptIndex)
+    console.log('prompts[newPromptIndex] ', prompts[newPromptIndex])
+    console.log(newPromptIndex, ' newPromptIndex')
+    console.log(currentPrompt, ' currentPrompt')
   }
 
   let promptsJsx = ''

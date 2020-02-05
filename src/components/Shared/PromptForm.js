@@ -13,6 +13,16 @@ const PromptForm = ({ prompt, handleSubmit, handleChange }) => (
       onChange={handleChange}
     />
     <br />
+    <label className='form-label'>Type of Prompt</label>
+    <br />
+    <input
+      placeholder="Fiction?"
+      value={prompt.genre}
+      name="genre"
+      type="text"
+      onChange={handleChange}
+    />
+    <br />
     <button type="submit" className='btn btn-primary submit-button'>Submit</button>
   </form>
 )

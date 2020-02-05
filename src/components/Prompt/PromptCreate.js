@@ -7,7 +7,7 @@ import PromptForm from '../Shared/PromptForm'
 import Layout from '../Shared/Layout'
 
 const PromptCreate = props => {
-  const [prompt, setPrompt] = useState({ text: '' })
+  const [prompt, setPrompt] = useState({ text: '', genre: '' })
   const [createdPromptId, setCreatedPromptId] = useState(null)
 
   const handleChange = event => {
