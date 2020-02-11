@@ -80,4 +80,8 @@ In future iterations, I would...
 
 #### Wireframes:
 
-![wireframes](https://i.imgur.com/HA6y0Ab.jpg?2)
+![wireframe1](https://i.imgur.com/MAw7DZJ.jpg?1)
+![wireframe2](https://i.imgur.com/QYauLFg.jpg?1)
+![wireframe3](https://i.imgur.com/3LuGCHy.jpg?1)
+![wireframe4](https://i.imgur.com/Iw7mkhZ.jpg?1)
+![wireframe5](https://i.imgur.com/fMkWQuN.jpg?1)
